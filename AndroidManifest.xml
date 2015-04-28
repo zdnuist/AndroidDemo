@@ -1,0 +1,37 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="me.zdnuist.android"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="12"
+        android:targetSdkVersion="19" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="me.zdnuist.android.MainActivity"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+                <category android:name="android.intent.category.LAUNCHER"/>
+                </intent-filter>
+            </activity>
+           <activity
+               android:name="me.zdnuist.android.demo1.Demo1Activity"
+               />
+           <service
+               android:name="me.zdnuist.android.demo1.Demo1_1Service"
+               />
+           <service
+               android:name="me.zdnuist.android.demo1.Demo1_2Service"
+               />
+           <service
+               android:name="me.zdnuist.android.demo1.Demo1_3Service"
+               />
+    </application>
+
+</manifest>

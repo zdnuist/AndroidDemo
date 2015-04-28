@@ -1,0 +1,17 @@
+<resources>
+
+    <string name="app_name">AndroidDemo</string>
+	<string name="demo_1">Activity与Service通信</string>
+	<string name="demo_1_btn_start">通过广播方式start</string>
+	<string name="demo_1_btn_pause">通过广播方式pause</string>
+	
+	<string name="demo_1_btn_bind1">通过Messenger方式bind service</string>
+	<string name="demo_1_btn_start1">通过Messenger方式start</string>
+	<string name="demo_1_btn_pause1">通过Messenger方式pause</string>
+	
+	<string name="demo_1_btn_bind2">通过接口回调方式bind service</string>
+	<string name="demo_1_btn_start2">通过接口回调方式start</string>
+	<string name="demo_1_btn_pause2">通过接口回调方式pause</string>
+	
+	
+</resources>
