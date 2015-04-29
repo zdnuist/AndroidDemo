@@ -13,5 +13,7 @@
 	<string name="demo_1_btn_start2">通过接口回调方式start</string>
 	<string name="demo_1_btn_pause2">通过接口回调方式pause</string>
 	
+	<string name="demo_2">sensor传感器</string>
+	
 	
 </resources>

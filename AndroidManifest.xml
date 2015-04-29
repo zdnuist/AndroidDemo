@@ -23,6 +23,9 @@
            <activity
                android:name="me.zdnuist.android.demo1.Demo1Activity"
                />
+           <activity
+               android:name="me.zdnuist.android.demo2.NorthFinderActivity"
+               />
            <service
                android:name="me.zdnuist.android.demo1.Demo1_1Service"
                />
