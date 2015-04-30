@@ -26,6 +26,9 @@
            <activity
                android:name="me.zdnuist.android.demo2.NorthFinderActivity"
                />
+           <activity
+               android:name="me.zdnuist.android.demo3.AlarmManagerActivity"
+               />
            <service
                android:name="me.zdnuist.android.demo1.Demo1_1Service"
                />

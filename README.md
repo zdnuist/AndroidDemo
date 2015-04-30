@@ -8,4 +8,7 @@
 
 #传感器学习
 代码目录:me.zdnuist.android.demo2
-##1.方向传感器 NorthFinderActivity  
+##1.方向传感器 NorthFinderActivity 
+
+#AlarmManager学习
+代码目录:me.zdnuist.android.demo3
