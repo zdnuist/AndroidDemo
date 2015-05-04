@@ -12,3 +12,6 @@
 
 #AlarmManager学习
 代码目录:me.zdnuist.android.demo3
+
+#MVP学习
+代码目录:me.zdnuist.android.demo4
