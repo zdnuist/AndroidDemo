@@ -16,4 +16,6 @@
 	<string name="demo_2">sensor传感器</string>
 	
 	<string name="demo_3">AlarmManager学习</string>
+	
+	<string name="demo_4">Simple MVP学习</string>
 </resources>

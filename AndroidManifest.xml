@@ -29,6 +29,17 @@
            <activity
                android:name="me.zdnuist.android.demo3.AlarmManagerActivity"
                />
+           <activity
+               android:name="me.zdnuist.android.demo4.Demo4Activity"
+               />
+           
+           
+           
+           
+           
+           
+           
+           
            <service
                android:name="me.zdnuist.android.demo1.Demo1_1Service"
                />
