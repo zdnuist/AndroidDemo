@@ -18,4 +18,6 @@
 	<string name="demo_3">AlarmManager学习</string>
 	
 	<string name="demo_4">Simple MVP学习</string>
+	
+	<string name="demo_5">显示或隐藏应用图标 </string>
 </resources>

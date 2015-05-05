@@ -32,7 +32,9 @@
            <activity
                android:name="me.zdnuist.android.demo4.Demo4Activity"
                />
-           
+           <activity
+               android:name="me.zdnuist.android.demo5.Demo5Activity"
+               />
            
            
            
