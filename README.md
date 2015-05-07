@@ -19,3 +19,6 @@
 #pm.setComponentEnabledSetting
 代码目录:me.zdnuist.android.demo5
 ##1.显示与隐藏应用图标
+
+#实现截屏功能
+代码目录:me.zdnuist.android.demo6
