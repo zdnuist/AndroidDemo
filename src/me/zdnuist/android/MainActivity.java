@@ -5,6 +5,7 @@ import me.zdnuist.android.demo2.NorthFinderActivity;
 import me.zdnuist.android.demo3.AlarmManagerActivity;
 import me.zdnuist.android.demo4.Demo4Activity;
 import me.zdnuist.android.demo5.Demo5Activity;
+import me.zdnuist.android.demo6.Demo6Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -20,6 +21,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		findViewById(R.id.btn_3).setOnClickListener(this);
 		findViewById(R.id.btn_4).setOnClickListener(this);
 		findViewById(R.id.btn_5).setOnClickListener(this);
+		findViewById(R.id.btn_6).setOnClickListener(this);
 	}
 
 	Intent intent;
@@ -45,6 +47,10 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 			break;
 		case R.id.btn_5:
 			intent = new Intent(this,Demo5Activity.class);
+			startActivity(intent);
+			break;
+		case R.id.btn_6:
+			intent = new Intent(this,Demo6Activity.class);
 			startActivity(intent);
 			break;
 		}

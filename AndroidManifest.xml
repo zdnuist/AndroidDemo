@@ -36,7 +36,9 @@
                android:name="me.zdnuist.android.demo5.Demo5Activity"
                />
            
-           
+            <activity
+               android:name="me.zdnuist.android.demo6.Demo6Activity"
+               />
            
            
            
@@ -53,4 +55,5 @@
                />
     </application>
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
 </manifest>

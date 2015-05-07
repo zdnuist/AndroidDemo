@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="10dp"
+    android:orientation="vertical" >
+
+    <Button
+        android:id="@+id/btn_screenshot1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="截屏" />
+
+    <Button
+        android:id="@+id/btn_show1"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="显示结果" />
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/iv_show" />
+
+</LinearLayout>
