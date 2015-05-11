@@ -22,4 +22,6 @@
 	<string name="demo_5">显示或隐藏应用图标 </string>
 	
 	<string name="demo_6">ScreenShot demo </string>
+	
+	<string name="demo_7">调节屏幕亮度 </string>
 </resources>

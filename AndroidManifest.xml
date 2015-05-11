@@ -40,7 +40,9 @@
                android:name="me.zdnuist.android.demo6.Demo6Activity"
                />
            
-           
+           <activity
+               android:name="me.zdnuist.android.demo7.Demo7Activity"
+               />
            
            
            
