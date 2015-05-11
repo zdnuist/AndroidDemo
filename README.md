@@ -22,3 +22,6 @@
 
 #实现截屏功能
 代码目录:me.zdnuist.android.demo6
+
+#调节屏幕亮度
+代码目录:me.zdnuist.android.demo7
