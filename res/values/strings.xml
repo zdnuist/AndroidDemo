@@ -24,4 +24,6 @@
 	<string name="demo_6">ScreenShot demo </string>
 	
 	<string name="demo_7">调节屏幕亮度 </string>
+	
+	<string name="demo_8">simple Retrofit demo </string>
 </resources>

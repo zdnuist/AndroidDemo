@@ -43,7 +43,9 @@
            <activity
                android:name="me.zdnuist.android.demo7.Demo7Activity"
                />
-           
+           <activity
+               android:name="me.zdnuist.android.demo8.Demo8Activity"
+               />
            
            
            <service
@@ -58,4 +60,5 @@
     </application>
 
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
