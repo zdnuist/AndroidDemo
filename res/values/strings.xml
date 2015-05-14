@@ -26,4 +26,6 @@
 	<string name="demo_7">调节屏幕亮度 </string>
 	
 	<string name="demo_8">simple Retrofit demo </string>
+	
+	<string name="demo_9">简易课程表 </string>
 </resources>

@@ -8,6 +8,7 @@ import me.zdnuist.android.demo5.Demo5Activity;
 import me.zdnuist.android.demo6.Demo6Activity;
 import me.zdnuist.android.demo7.Demo7Activity;
 import me.zdnuist.android.demo8.Demo8Activity;
+import me.zdnuist.android.demo9.Demo9Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -26,6 +27,7 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 		findViewById(R.id.btn_6).setOnClickListener(this);
 		findViewById(R.id.btn_7).setOnClickListener(this);
 		findViewById(R.id.btn_8).setOnClickListener(this);
+		findViewById(R.id.btn_9).setOnClickListener(this);
 	}
 
 	Intent intent;
@@ -63,6 +65,10 @@ public class MainActivity extends BaseActivity implements OnClickListener{
 			break;
 		case R.id.btn_8:
 			intent = new Intent(this,Demo8Activity.class);
+			startActivity(intent);
+			break;
+		case R.id.btn_9:
+			intent = new Intent(this,Demo9Activity.class);
 			startActivity(intent);
 			break;
 		}

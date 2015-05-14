@@ -29,7 +29,7 @@ import com.lidroid.xutils.DbUtils;
 import com.lidroid.xutils.db.sqlite.Selector;
 import com.lidroid.xutils.exception.DbException;
 
-public class Demo9Activity extends BaseActivity implements TipListener{
+public class Demo9Activity extends BaseActivity implements TipListener {
 	public static final String TAG = "NewCourseTableActivity";
 
 	private int colors[] = { Color.rgb(0xee, 0xff, 0xff),
@@ -91,9 +91,7 @@ public class Demo9Activity extends BaseActivity implements TipListener{
 		} else if ("GetTeacherClassByWhere".equals(method)) {
 			name = intent.getStringExtra("name");
 		}
-		// http://218.94.132.146:8089/WebServiceClass.asmx?year=2009-2010&term=2&number=012118130141
-		String character = BaseApplication.getInstance().mInfoBean
-				.getCharacter();
+		String character = "学生";
 		if ("学生".equals(character)) {
 			params.put("number", num);
 		} else if ("教师".equals(character)) {
@@ -135,57 +133,48 @@ public class Demo9Activity extends BaseActivity implements TipListener{
 
 	/** 获取专业和课表 */
 	private void getZYandKB(String method) {
-		JWNet jwNet = new JWNet();
-		jwNet.startRequestAsp(method, params, new INetCallBack() {
-			@Override
-			public void onComplete(String result) {
 
-				if (result == null)
-					return;
-				// 回调处理请求返回数据
-				courseList = CourseParseUtils.parseCourseFromJson(result,
-						params.get("number"), params.get("year"),
-						Integer.parseInt(params.get("term")));
-				if (courseList.size() > 0) {
-					// 一天有10节课 有课的填充 没课的为空
-					for (List<CourseBean> dayList : courseList) {
-						// 设置每天课程
-						int size = dayList.size();
-						if (size > 0) {
-							try {
-								db.saveAll(dayList);
-							} catch (DbException e) {
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-						}
-
-						// setCourseInView(dayList,size);
+		String result = "[{'星期一':{'第六节':'外贸英语函电 01-13,15-18 朱莉蓉 敏德楼311','第八节':'国际商法 10-13,15-18 江静波 敏德楼401','第一节':'','第二节':'','第三节':'','第四节':'','第五节':'','第七节':'','第九节':'','第十节':'','第十一节':'','第十二节':''}},{'星期二':{'第一节':'国际金融 01-09 薛芳 G101','第三节':'报关实务 01-13,15-18 庄国娅 G102','第六节':'毛泽东思想和中国特色理论 01-13,15-16 杨玲 敏德楼314','第六节':'毛泽东思想和中国特色理论 01-13,15-16 杨玲 敏德楼314','第九节':'瑜珈  李丽 形体馆','第二节':'','第四节':'','第五节':'','第七节':'','第八节':'','第十节':'','第十一节':'','第十二节':''}},{'星期三':{'第一节':'国际经济合作 01-13,15-18 张伯辉 敏德楼408','第三节':'国际金融 01-09 薛芳 敏德楼409','第三节':'国际商法 10-13,15-18 江静波 敬德楼409','第二节':'','第四节':'','第五节':'','第六节':'','第七节':'','第八节':'','第九节':'','第十节':'','第十一节':'','第十二节':''}},{'星期四':{'第一节':'国际商法 10-13,15-18 江静波 G201','第一节':'国际经济合作 01-13,15-18 张伯辉 敏德楼311','第六节':'外贸英语函电 01-13,15-18 朱莉蓉 敏德楼405','第六节':'国际金融 01-09 薛芳 敏德楼313','第二节':'','第三节':'','第四节':'','第五节':'','第七节':'','第八节':'','第九节':'','第节':'','第十一节':'','第十二节':''}},{'星期五':{'第一节':'国际结算 01-13,15-18 王慧谦 敏德楼410','第三节':'报关实务 01-13,15-18 庄国娅 敏德楼313','第二节':'','第四节':'','第五节':'','第六节':'','第七节':'','第八节':'','第九节':'','第十节':'','第十一节':'','第十二节':''}},{'星期六':{'第二节':'','第三节':'','第四节':'','第五节':'','第六节':'','第七节':'','第八节':'','第九节':'','第十节':'','第十一节':'','第十二节':''}},{'星期七':{'第二节':'','第三节':'','第四节':'','第五节':'','第六节':'','第七节':'','第八节':'','第九节':'','第十节':'','第十一节':'','第十二节':''}}]";
+		// 回调处理请求返回数据
+		courseList = CourseParseUtils.parseCourseFromJson(result,
+				params.get("number"), params.get("year"),
+				Integer.parseInt(params.get("term")));
+		if (courseList.size() > 0) {
+			// 一天有10节课 有课的填充 没课的为空
+			for (List<CourseBean> dayList : courseList) {
+				// 设置每天课程
+				int size = dayList.size();
+				if (size > 0) {
+					try {
+						db.saveAll(dayList);
+					} catch (DbException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
 					}
 				}
 
-				try {
-					if (db.count(Selector.from(CourseBean.class)
-							.where("number", "=", params.get("number"))
-							.and("year", "=", params.get("year"))
-							.and("term", "=", params.get("term"))) > 0) {
-						for (int i = 1; i <= 5; i++) {
-							List<CourseBean> dayList = db.findAll(Selector
-									.from(CourseBean.class)
-									.where("week_day", "=", i)
-									.and("number", "=", params.get("number"))
-									.and("year", "=", params.get("year"))
-									.and("term", "=", params.get("term")));
-							setCourseInView(dayList, dayList.size());
-						}
-					}
-				} catch (DbException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
+				// setCourseInView(dayList,size);
 			}
-		});
+		}
+
+		try {
+			if (db.count(Selector.from(CourseBean.class)
+					.where("number", "=", params.get("number"))
+					.and("year", "=", params.get("year"))
+					.and("term", "=", params.get("term"))) > 0) {
+				for (int i = 1; i <= 5; i++) {
+					List<CourseBean> dayList = db.findAll(Selector
+							.from(CourseBean.class).where("week_day", "=", i)
+							.and("number", "=", params.get("number"))
+							.and("year", "=", params.get("year"))
+							.and("term", "=", params.get("term")));
+					setCourseInView(dayList, dayList.size());
+				}
+			}
+		} catch (DbException e) {
+			e.printStackTrace();
+		}
+
 	}
 
 	int classes;
@@ -370,7 +359,6 @@ public class Demo9Activity extends BaseActivity implements TipListener{
 				getZYandKB("GetClassByWhere");
 			}
 		} catch (DbException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

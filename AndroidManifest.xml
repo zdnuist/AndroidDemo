@@ -46,7 +46,9 @@
            <activity
                android:name="me.zdnuist.android.demo8.Demo8Activity"
                />
-           
+           <activity
+               android:name="me.zdnuist.android.demo9.Demo9Activity"
+               />
            
            <service
                android:name="me.zdnuist.android.demo1.Demo1_1Service"
@@ -56,6 +58,10 @@
                />
            <service
                android:name="me.zdnuist.android.demo1.Demo1_3Service"
+               />
+           
+           <service
+               android:name="me.zdnuist.android.demo9.service.CourseService"
                />
     </application>
 
