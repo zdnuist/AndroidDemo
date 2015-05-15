@@ -12,59 +12,39 @@
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <activity
-            android:name="me.zdnuist.android.MainActivity"
-            >
+        <activity android:name="me.zdnuist.android.MainActivity" >
             <intent-filter>
-                <action android:name="android.intent.action.MAIN"/>
-                <category android:name="android.intent.category.LAUNCHER"/>
-                </intent-filter>
-            </activity>
-           <activity
-               android:name="me.zdnuist.android.demo1.Demo1Activity"
-               />
-           <activity
-               android:name="me.zdnuist.android.demo2.NorthFinderActivity"
-               />
-           <activity
-               android:name="me.zdnuist.android.demo3.AlarmManagerActivity"
-               />
-           <activity
-               android:name="me.zdnuist.android.demo4.Demo4Activity"
-               />
-           <activity
-               android:name="me.zdnuist.android.demo5.Demo5Activity"
-               />
-           
-            <activity
-               android:name="me.zdnuist.android.demo6.Demo6Activity"
-               />
-           
-           <activity
-               android:name="me.zdnuist.android.demo7.Demo7Activity"
-               />
-           <activity
-               android:name="me.zdnuist.android.demo8.Demo8Activity"
-               />
-           <activity
-               android:name="me.zdnuist.android.demo9.Demo9Activity"
-               />
-           
-           <service
-               android:name="me.zdnuist.android.demo1.Demo1_1Service"
-               />
-           <service
-               android:name="me.zdnuist.android.demo1.Demo1_2Service"
-               />
-           <service
-               android:name="me.zdnuist.android.demo1.Demo1_3Service"
-               />
-           
-           <service
-               android:name="me.zdnuist.android.demo9.service.CourseService"
-               />
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity android:name="me.zdnuist.android.demo1.Demo1Activity" />
+        <activity android:name="me.zdnuist.android.demo2.NorthFinderActivity" />
+        <activity android:name="me.zdnuist.android.demo3.AlarmManagerActivity" />
+        <activity android:name="me.zdnuist.android.demo4.Demo4Activity" />
+        <activity android:name="me.zdnuist.android.demo5.Demo5Activity" />
+        <activity android:name="me.zdnuist.android.demo6.Demo6Activity" />
+        <activity android:name="me.zdnuist.android.demo7.Demo7Activity" />
+        <activity android:name="me.zdnuist.android.demo8.Demo8Activity" />
+        <activity android:name="me.zdnuist.android.demo9.Demo9Activity" />
+        <activity android:name="me.zdnuist.android.demo10.Demo10Activity" />
+
+        <service android:name="me.zdnuist.android.demo1.Demo1_1Service" />
+        <service android:name="me.zdnuist.android.demo1.Demo1_2Service" />
+        <service android:name="me.zdnuist.android.demo1.Demo1_3Service" />
+        <service android:name="me.zdnuist.android.demo9.service.CourseService" />
+
+        <receiver
+            android:name="me.zdnuist.android.demo10.MediaButtonReceiver"
+            android:enabled="true" >
+            <intent-filter android:priority="2147483647" >
+                <action android:name="android.intent.action.MEDIA_BUTTON" />
+            </intent-filter>
+        </receiver>
     </application>
 
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+
 </manifest>

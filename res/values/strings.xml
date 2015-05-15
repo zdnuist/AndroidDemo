@@ -28,4 +28,6 @@
 	<string name="demo_8">simple Retrofit demo </string>
 	
 	<string name="demo_9">简易课程表 </string>
+	
+	<string name="demo_10">媒体按键事件接收 </string>
 </resources>
