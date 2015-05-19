@@ -3,6 +3,8 @@ package me.zdnuist.android.demo11;
 import java.util.ArrayList;
 import java.util.List;
 
+import me.zdnuist.android.BaseActivity;
+import me.zdnuist.android.R;
 import android.content.ContentProviderOperation;
 import android.content.ContentProviderResult;
 import android.content.ContentUris;
@@ -18,18 +20,18 @@ import android.provider.ContactsContract.CommonDataKinds.Phone;
 import android.provider.ContactsContract.CommonDataKinds.StructuredName;
 import android.provider.ContactsContract.Contacts.Data;
 import android.provider.ContactsContract.RawContacts;
+import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
+import android.view.View.OnTouchListener;
 import android.view.ViewGroup;
 import android.widget.AlphabetIndexer;
 import android.widget.Button;
 import android.widget.CursorAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
-import me.zdnuist.android.BaseActivity;
-import me.zdnuist.android.R;
-import me.zdnuist.android.utils.ToastUtil;
 
 /**
  * 操作联系人
@@ -39,10 +41,14 @@ import me.zdnuist.android.utils.ToastUtil;
  *
  */
 public class Demo11Activity extends BaseActivity implements OnClickListener{
+	
+	public static final String TAG = "Demo11Activity";
 
 	
 	Button generator;
 	ListView show;
+	TextView selection;
+	TextView toast;
 	
 	/** 
      * 定义字母表的排序规则 
@@ -57,6 +63,10 @@ public class Demo11Activity extends BaseActivity implements OnClickListener{
 		
 		show = (ListView) findViewById(R.id.lv_contacts);
 		
+		selection = (TextView) findViewById(R.id.tv_selection);
+		
+		toast = (TextView) findViewById(R.id.tv_toast);
+		
 		generator.setOnClickListener(this);
 		
 		initDatas();
@@ -65,7 +75,7 @@ public class Demo11Activity extends BaseActivity implements OnClickListener{
 		 Cursor cursor = getContentResolver().query(uri,
 				new String[] { "_id","display_name", "sort_key" }, null, null,
 				"sort_key");
-		final AlphabetIndexer indexer = new AlphabetIndexer(cursor, 1, alphabet);  
+		final AlphabetIndexer indexer = new AlphabetIndexer(cursor, 2, alphabet);  
 		
 		CursorAdapter adapter = new CursorAdapter(this,cursor){
 
@@ -89,8 +99,11 @@ public class Demo11Activity extends BaseActivity implements OnClickListener{
 				View v = super.getView(position, convertView, parent);
 				Cursor cursor = this.getCursor();
 				int section = indexer.getSectionForPosition(position);  
+				Log.d(TAG, "selection:" + section + ";position:"+position);
 		        if (position == indexer.getPositionForSection(section)) {  
-		        	ToastUtil.show_s(Demo11Activity.this, cursor.getString(cursor.getColumnIndex("sort_key")));
+		        	
+		        	String flag = cursor.getString(cursor.getColumnIndex("sort_key")).substring(0, 1);
+		        	Log.d(TAG, "flag:"+flag);
 		        }
 				
 				return v;
@@ -101,6 +114,39 @@ public class Demo11Activity extends BaseActivity implements OnClickListener{
 		
 		show.setAdapter(adapter);
 		show.setFastScrollEnabled(true);
+		
+		
+		selection.setOnTouchListener(new OnTouchListener(){
+
+			@Override
+			public boolean onTouch(View v, MotionEvent event) {
+				float alphabetHeight = selection.getHeight();
+				float y = event.getY();
+				int sectionPosition = (int) ((y / alphabetHeight) / (1f / 27f));
+				if (sectionPosition < 0) {
+					sectionPosition = 0;
+				} else if (sectionPosition > 26) {
+					sectionPosition = 26;
+				}
+				String sectionLetter = String.valueOf(alphabet.charAt(sectionPosition));
+				int position = indexer.getPositionForSection(sectionPosition);
+				switch (event.getAction()) {
+				case MotionEvent.ACTION_DOWN:
+					show.setSelection(position);
+					toast.setVisibility(View.VISIBLE);
+					toast.setText(sectionLetter);
+					break;
+				case MotionEvent.ACTION_MOVE:
+					show.setSelection(position);
+					toast.setText(sectionLetter);
+					break;
+				default:
+					toast.setVisibility(View.GONE);
+				}
+				return true;
+			}
+			
+		});
 	}
 
 	/**
