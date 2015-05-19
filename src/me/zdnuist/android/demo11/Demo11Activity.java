@@ -35,6 +35,8 @@ import android.widget.TextView;
 
 /**
  * 操作联系人
+ * 读取联系人
+ * AlphabetIndexer的使用
  * db path: /data/data/com.android.providers.contacts/databases/contacts2.db
  * table : raw_contacts
  * @author zdnuist
