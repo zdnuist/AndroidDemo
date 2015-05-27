@@ -30,6 +30,7 @@
         <activity android:name="me.zdnuist.android.demo9.Demo9Activity" />
         <activity android:name="me.zdnuist.android.demo10.Demo10Activity" />
         <activity android:name="me.zdnuist.android.demo11.Demo11Activity" />
+        <activity android:name="me.zdnuist.android.demo12.Demo12Activity" />
 
         <service android:name="me.zdnuist.android.demo1.Demo1_1Service" />
         <service android:name="me.zdnuist.android.demo1.Demo1_2Service" />

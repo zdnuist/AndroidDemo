@@ -7,17 +7,30 @@
     >
     
     <Button
-        android:id="@+id/btn_make"
+        android:id="@+id/btn_make1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="..."
+        android:text="创建图标1"
         />
     
     <Button
-        android:id="@+id/btn_delete"
+        android:id="@+id/btn_delete1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="..."
+        android:text="删除图标1"
+        />
+    <Button
+        android:id="@+id/btn_make2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="创建图标2"
+        />
+    
+    <Button
+        android:id="@+id/btn_delete2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="删除图标2"
         />
 
 </LinearLayout>

@@ -1,5 +1,6 @@
 package me.zdnuist.android.demo12;
 
+import me.zdnuist.android.BaseActivity;
 import me.zdnuist.android.R;
 import android.content.ContentResolver;
 import android.content.Context;
@@ -20,18 +21,18 @@ public class AndroidUtils {
 
 	public static Intent des = null;
 
-	public static void makeShortcut(Context context) {
+	public static void makeShortcut(Context context,Class cls,int id) {
 		Intent intent = new Intent(SHORT_CUT_ACTION1);
 		intent.putExtra(Intent.EXTRA_SHORTCUT_NAME,
-				context.getString(R.string.app_name));
+				context.getString(id));
 		intent.putExtra(Intent.EXTRA_SHORTCUT_ICON, BitmapFactory
 				.decodeResource(context.getResources(), R.drawable.ic_launcher));
 		if (des == null)
-			des = new Intent(context, Demo12Activity.class);
+			des = new Intent(context, cls);
 
 		Log.d(TAG, "des.action:"+des.getAction());
 		boolean b = shortcutExists(context,
-				context.getString(R.string.app_name));
+				context.getString(id));
 		if (b)
 			return;
 		intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, des);
@@ -40,18 +41,18 @@ public class AndroidUtils {
 	}
 	
 	
-	public static void deleteShotCut(Context context){
+	public static void deleteShotCut(Context context,Class<? extends BaseActivity> cls , int id){
 		Intent intent = new Intent(SHORT_CUT_ACTION2);
 		intent.putExtra(Intent.EXTRA_SHORTCUT_NAME,
-				context.getString(R.string.app_name));
+				context.getString(id));
 		
 		boolean b = shortcutExists(context,
-				context.getString(R.string.app_name));
+				context.getString(id));
 		if (!b)
 			return;
 		
 		if (des == null)
-			des = new Intent(context, Demo12Activity.class);
+			des = new Intent(context, cls);
 		intent.putExtra(Intent.EXTRA_SHORTCUT_INTENT, des);
 		intent.putExtra("duplicate", false);
 		context.sendBroadcast(intent);

@@ -32,4 +32,6 @@
 	<string name="demo_10">媒体按键事件接收 </string>
 	
 	<string name="demo_11">新增联系人 </string>
+	
+	<string name="demo_12">快捷图标操作 </string>
 </resources>
