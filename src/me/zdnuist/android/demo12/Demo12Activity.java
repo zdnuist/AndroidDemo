@@ -40,12 +40,13 @@ public class Demo12Activity extends BaseActivity implements OnClickListener{
 			AndroidUtils.makeShortcut(this, MainActivity.class, R.string.app_name);
 			break;
 		case R.id.btn_make2:
-			AndroidUtils.deleteShotCut(this, MainActivity.class, R.string.app_name);
+			AndroidUtils.makeShortcut(this, Demo12Activity.class, R.string.demo_12);
 			break;
 		case R.id.btn_delete1:
-			
+			AndroidUtils.deleteShotCut(this, MainActivity.class, R.string.app_name);
 			break;
 		case R.id.btn_delete2:
+			AndroidUtils.deleteShotCut(this, Demo12Activity.class, R.string.demo_12);
 			break;
 		}
 	}
