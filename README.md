@@ -37,3 +37,6 @@
 
 #读取联系人列表，添加快速查看SelectionIndex
 代码目录:me.zdnuist.android.demo11
+
+#快捷图标操作
+代码目录:me.zdnuist.android.demo12
